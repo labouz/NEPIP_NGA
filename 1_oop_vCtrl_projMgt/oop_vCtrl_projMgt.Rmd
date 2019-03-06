@@ -92,6 +92,9 @@ and hit save.
 
   ![Leave a commit message and push the changes](/Users/Layla/Documents/GitHub/lootedart/images/1_push.jpg)
 
+
+
+
 ## Project Management in RStudio
 
 RStudio makes it easy organize and manage your project. Built-in functions, like "New Project" or "Import Data" aim to make your life a little easier. Let's start with creating a self-contained, reproducible project. It's a good idea to create a new project before starting a new script - that way, all data and code within that project can be easily picked back up after a break.
