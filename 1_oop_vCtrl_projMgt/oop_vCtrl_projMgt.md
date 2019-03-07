@@ -9,9 +9,7 @@ output:
     toc: yes
 ---
 
-```{r vCtrl, include=FALSE}
-knitr::opts_chunk$set(eval = FALSE)
-```
+
 
 ## Version Control
 Version control is a crucial consideration, espectially when working with collaborators. We will try and collaborate on this project so, we will learn how to set up git on your machine and integrated into RStudio. Jenny Bryan also has a wonderful book online that provides an in-depth step-by-step on how to truly get git working smoothly, check it out here <https://happygitwithr.com>.  
@@ -21,7 +19,8 @@ Version control is a crucial consideration, espectially when working with collab
 1. Install Windows: [Git](https://git-scm.com/) / macOS: Xcode
 2. Register a [GitHub](https://github.com) account
 3. Get your GitHub known to RStudio
-```{r git}
+
+```r
 library(usethis)
 use_git_config(user.name = "labouz", user.email = "lab218@miami.edu")
 ```
