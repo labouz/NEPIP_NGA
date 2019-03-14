@@ -1,43 +1,44 @@
 ---
-title: "oop_vCtrl_prjMgt"
+title: "vCtrl_wrkFlw"
 subtitle: "R-Ladies Miami"
 author: "LB"
-date: "February 28, 2019"
+date: "March 21, 2019"
 output: 
   html_document:
     keep_md: yes
     toc: yes
 ---
 
-
+```{r vCtrl, include=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
 
 ## Version Control
-Version control is a crucial consideration, espectially when working with collaborators. We will try and collaborate on this project so, we will learn how to set up git on your machine and integrated into RStudio. Jenny Bryan also has a wonderful book online that provides an in-depth step-by-step on how to truly get git working smoothly, check it out here <https://happygitwithr.com>.  
+Version control is a crucial consideration, especially when working with collaborators. We will try and collaborate on this project so, we will learn how to set up git on your machine and integrated into RStudio. Jenny Bryan also has a wonderful book online that provides an in-depth step-by-step on how to truly get git working smoothly, check it out here <https://happygitwithr.com>.  
   
   Overview:  
 
 1. Install Windows: [Git](https://git-scm.com/) / macOS: Xcode
 2. Register a [GitHub](https://github.com) account
 3. Get your GitHub known to RStudio
-
-```r
+```{r git}
 library(usethis)
 use_git_config(user.name = "labouz", user.email = "lab218@miami.edu")
 ```
 4. Make a test repo on GitHub.com
 5. Connect RStudio to Git and GitHub
-6. Create project with verison control
+6. Create project with version control
 7. Make changes, commit, and push
 8. Pulling changes
 9. Issues
 
 ### What is Git and GitHub?
 #### 1. Git
-Git is a version control system. Simply, it allows you to capture "screenshots" of changes made and combines them automatically. This way, you and others can work on the same files at the same time and see each other's changes. If there are conflicts or ambiguity, Git will show you those too.  
+Git is a version control system. Simply, it allows you to capture "snapshots" (commits) of changes made and combines them automatically. This way, you and others can work on the same files at the same time and see each others changes. If there are conflicts or ambiguity, Git will show you those too.  
 There is a "parent" or "master" branch that can feed several "children" branches. 
 
 #### 2. GitHub
-GitHub is a website that allows you to share your projects on code with collaborators/the world. In conjuction with Git, it is one of the more user-friendly systems out there.  
+GitHub is a website that allows you to share your projects on code with collaborators/the world. In conjunction with Git, it is one of the more user-friendly systems out there.  
 
 #### 4. Create a test repo on GitHub.com
 Go to <https://github.com>. Go to your repositories page and click "New".  
@@ -114,10 +115,31 @@ and hit save.
 
 ### Issues
   
-#####Creating and Assigning Issues
+#####9. Creating and Assigning Issues
+  
+#####10. Merge conflicts
+Realistically, you will have a merge conflict. This is when two collaborators make changes to the dame line of a file and push the file to their repo.
 
+Let's try it out and then we'll resolve it!  
 
+Let's open up the test repo we just created on GitHub.  
 
+  * Half of you - assign the person next to you to be a collaborator. 
+    * copy and paste the mergeConflict.R into your test repo.
+  * The other half- accept the request.
+    * open the mergeConflict.R file and add a title the graphic 
+    
+    ```{r merge}
+    g + 
+      geom_point(mapping = aes(x = hp, y = mpg, color = cyl)) +
+      ggtitle("Relationship Between MPG and HP")
+    ```
+    
+    * hit save and commit the change
+  * The first group, do the same but use a different title. Save and commit the change.
+  * Both groups push the changes.
+  
+  
 ## Project Management in RStudio
 
 RStudio makes it easy organize and manage your project. Built-in functions, like "New Project" or "Import Data" aim to make your life a little easier. Let's start with creating a self-contained, reproducible project. It's a good idea to create a new project before starting a new script - that way, all data and code within that project can be easily picked back up after a break.
