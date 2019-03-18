@@ -52,7 +52,7 @@ Go to <https://github.com>. Go to your repositories page and click "New".
   
   
   
-  ![click on the green clone button](/Users/Layla/Documents/GitHub/lootedart/images/1_https.jpg)
+  ![click on the green clone button](../images/1_https.jpg)
   
   
 We can use the shell (see Happy Git for more details) to clone the repo to our 
@@ -68,7 +68,7 @@ From RStudio, *Tools > Global Options > Git/SVN* and direct RStudio to your Git
 executable file. Restart RStudio.  
   
 
-![Set the path to where the .exe file is stored locally](/Users/Layla/Documents/GitHub/lootedart/images/1_gitexe.jpg)
+![Set the path to where the .exe file is stored locally](../images/1_gitexe.jpg)
   
   
 Additional instructions for connecting Git/GitHub to RStudio:  <https://support.rstudio.com/hc/en-us/articles/200532077?version=1.1.463&mode=desktop>
@@ -77,7 +77,7 @@ Now that RStudio can detect Git, let's make a project! Once you've restarted RSt
 *File > New Project*. Select the "Version Control" option and then select "Git". Here, you will paste the HTTPS URL of the repo we just created on GitHub.com. The name of the repo should auto-complete.
 Make sure the directory of the project is pointing to where you would like to store this project.
 
-![Paste the URL of the repo into a new RStudio Version Control project](/Users/Layla/Documents/GitHub/lootedart/images/1_newproj.jpg)
+![Paste the URL of the repo into a new RStudio Version Control project](../images/1_newproj.jpg)
   
   You've successfully created a version control project! The repo you created on
   GitHub will now be cloned to your local machine. 
@@ -95,9 +95,9 @@ and hit save.
   * Press "Commit"
   * Leave a "meaningful" commit message and press "Push"
   
-  ![Commit the changes to the README file](/Users/Layla/Documents/GitHub/lootedart/images/1_commit.jpg)
+  ![Commit the changes to the README file](../images/1_commit.jpg)
 
-  ![Leave a commit message and push the changes](/Users/Layla/Documents/GitHub/lootedart/images/1_push.jpg)
+  ![Leave a commit message and push the changes](../images/1_push.jpg)
 
 ####8. Pulling
 
@@ -114,9 +114,7 @@ and hit save.
 
 ### Issues
   
-#####9. Creating and Assigning Issues
-  
-#####10. Merge conflicts
+#####9. Merge conflicts
 Realistically, you will have a merge conflict. This is when two collaborators make changes to the dame line of a file and push the file to their repo.
 
 Let's try it out and then we'll resolve it!  
@@ -135,12 +133,36 @@ Let's open up the test repo we just created on GitHub.
       ggtitle("Relationship Between MPG and HP")
     ```
     
-    * hit save and commit the change
-  * The first group, do the same but use a different title. Save and commit the change.
-  * Both groups push the changes.
+    * hit save, commit, push the change
+  * The first group, do the same but use a different title. Save, commit, push the change.
+  * You should get an error. First group, pull. Look at the document with the conflict and choose the preferred change. Commit, and push.
+
   
+#####10. Creating and Assigning Issues
+
+Issues are a useful way to track pieces of your code/project that need improvent, questions, etc.   
+
+Let's create an issue in our test repo. Go to the repo on GitHub and click on the *Issues* tab. 
+
+![](../images/1_newissue.jpg)
   
-## Project Management in RStudio
+<br></br>
+
+Repo owners from earlier, you notice there is a bug in createIssue.R. Let's assign our partners to fix the bug by assigning them an *Issue* on GitHub.  
+  *  Copy and paste the R script into your test repo, commit and push the changes.   
+  *  Contributors, pull changes.  
+  *  Owners, let's create an issue. Hit the green **New Issue** button.   
+  *  Write a summary of the issue and assign the issue to the other person.  
+  *  Other person, fix issue, leave comment, and close issue.
+  
+
+![Create and issue and assign it](../images/1_assignissue.jpg)
+
+<br></br>
+
+![Write and comment and close the issue to mark it done](../images/1_closeissue.jpg)
+
+## Workflow in RStudio
 
 RStudio makes it easy organize and manage your project. Built-in functions, like "New Project" or "Import Data" aim to make your life a little easier. Let's start with creating a self-contained, reproducible project. It's a good idea to create a new project before starting a new script - that way, all data and code within that project can be easily picked back up after a break.
 
