@@ -9,8 +9,8 @@ output:
     toc: yes
 ---
 
-```{r vCtrl, include=FALSE}
-knitr::opts_chunk$set(eval = FALSE)
+```{r vCtrl, echo=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 ```
 
 ## Version Control
@@ -21,7 +21,7 @@ Version control is a crucial consideration, especially when working with collabo
 1. Install Windows: [Git](https://git-scm.com/) / macOS: Xcode
 2. Register a [GitHub](https://github.com) account
 3. Get your GitHub known to RStudio
-```{r git}
+```{r git, eval=FALSE}
 library(usethis)
 use_git_config(user.name = "labouz", user.email = "lab218@miami.edu")
 ```
@@ -127,8 +127,8 @@ Let's open up the test repo we just created on GitHub.
   * The other half- accept the request.
     * open the mergeConflict.R file and add a title the graphic 
     
-    ```{r merge}
-    g + 
+    ```{r merge, eval = FALSE}
+     g + 
       geom_point(mapping = aes(x = hp, y = mpg, color = cyl)) +
       ggtitle("Relationship Between MPG and HP")
     ```
@@ -162,15 +162,99 @@ Repo owners from earlier, you notice there is a bug in createIssue.R. Let's assi
 
 ![Write and comment and close the issue to mark it done](../images/1_closeissue.jpg)
 
-## Workflow in RStudio
+## Workflow and Efficiencies in RStudio  
 
-RStudio makes it easy organize and manage your project. Built-in functions, like "New Project" or "Import Data" aim to make your life a little easier. Let's start with creating a self-contained, reproducible project. It's a good idea to create a new project before starting a new script - that way, all data and code within that project can be easily picked back up after a break.
+Below, I will highlight a few recommendations that will make the workflow of any project much smoother for your current self, future self, and others. I will try and show you how do these tasks within the RStudio IDE and using the very helpful [usethis](https://usethis.r-lib.org/) package.  
+*usethis* is a package designed to aid in the automation of repetitive tasks which will make workflow much smoother.
 
- How to create a project:
+```{r usethis, eval=FALSE}
+install.packages("usethis")
+```
 
-1. Click "File", "New Project"
-2. Click "New Directory"
-3. Click "New Project"
-4. Name your project
+It can be used to do anything from make a new package to initialising a Git repo. Read the package documentation for a complete description of the package functions. For the purposes of this workshop, I will highlight the specific funtions that may be usefull for workflow efficiency. 
+
+*Source:* [](https://whattheyforgot.org/)
+
+
+### Directory, RStudio Project, Repo 
+
+It is important to adopt a project oriented workflow. This will allow you to work on multiple projects at a time with other people. It's a good idea to create a new project before starting a new script - that way, all data and code within that project can be easily picked back up after a break.  
+
+1. Create a dedicated directory 
+2. Create an RStudio Project
+ + Click "File", "New Project"
+ + Click "New Directory" or "Existing Directory" (if syncing to a remote, click "Verson Control")
+ + Name project  
+3. Git Repo
+
+### Tips 
+
+Here are some tips to consider while to have a more holistic workflow:
+
+#### Source and Blank Slates
+
+As scary as it may sounds, it's better to treat your R process and associated workspace as disposable. It is probably not a good sign when you need to leave your project and are not 100% sure your precious objects in your environment are reproducible. This attachment is indication you do not have a reproducible workflow.  
+  
+  
+Save your code, not your workspace and restart R often. This will pressure you make sure you save the source code for the required objects of your analysis and not just the workspace.  
+  
+  
+
+**USE THE IDE!**  
+Yes, IDE's are meant to make your coding life easier. There are many out there aside from RStudio but I will stick to what I know. Using an IDE allows you tro devlop code in a script versus directly into the console.   
+
+**BLANK SLATE!**  
+Like I mentioned previously, it's tempting to save your workspace and reload it everytime you start up RStudio, but this is bad practice! Loading up RStudio to a blank slate everytime enables the good practice of reproducibility.    
+  
+  
+
+You can set this option by going to *Tools* > *Global Options*  
+
+![](../images/1_workspace.png)
+<br></br>
+<br></br>
+
+You can also use:   
+
+```{r blank}
+library(usethis)
+
+use_blank_slate()
+```
+
+<br></br>
+
+This function will print directly to the console directions on how to start all RStudio sessions with a blank slate.
+
+<br></br>
+
+
+**RESTART R OFTEN!**
+
+![](../images/1_restart.jpg)
+
+<br></br>
+
+This is a good habit to start forming. I cannot tell you how many times I am *certain* my program runs smoothly until I've restarted R and realized that a my function was calling a variable in a dataset that was created in the console for testing purposes. Restarting R often will help you catch these types of silly bugs and prevent embarassment in front of your boss.  
+  
+  
+####Save and Automate
+
+**MODULARITY**  
+  
+If an object takes too long to create, save it! Isolate each demanding process in its own script and write it to file:  `saveRDS(my_object, here("results", "my_object.rds"))`  (saves `my_object.rds` to subdirectory "results")
+  
+What is this `here()` function you speak of? Glad you asked! If you find yourself writing `setwd()` at the top of your scripts, STOP ! 
+  
+The [here](https://github.com/jennybc/here_here) package is helps you get around the awkwardness of building/setting paths to working directories or subdirectories.   
+
+```{r here}
+##install.packages("here")
+
+library(here)
+
+here()
+
+```
 
 
