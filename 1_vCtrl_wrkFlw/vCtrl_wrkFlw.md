@@ -353,6 +353,5 @@ files_df %>%
 In our next workshop we will talk about reproducible research and making publicatio-ready docs in RMarkdown!
 
 <br></br>
-<br></br>
 
 ![](../images/1_thankyou.jpg)
