@@ -140,7 +140,7 @@ Let's open up the test repo we just created on GitHub.
   
 #####10. Creating and Assigning Issues
 
-Issues are a useful way to track pieces of your code/project that need improvent, questions, etc.   
+Issues are a useful way to track pieces of your code/project that need improvement, questions, etc.   
 
 Let's create an issue in our test repo. Go to the repo on GitHub and click on the *Issues* tab. 
 
@@ -164,15 +164,15 @@ Repo owners from earlier, you notice there is a bug in createIssue.R. Let's assi
 
 ## Workflow and Efficiencies in RStudio  
 
-Below, I will highlight a few recommendations that will make the workflow of any project much smoother for your current self, future self, and others. I will try and show you how do these tasks within the RStudio IDE and using the very helpful [usethis](https://usethis.r-lib.org/) package.  
-*usethis* is a package designed to aid in the automation of repetitive tasks which will make workflow much smoother.
+Below, I will highlight a few recommendations that will make the workflow of any project much smoother for your current self, future self, and others. I will try and show you how do these tasks within the RStudio IDE and using the very helpful [usethis](https://usethis.r-lib.org/) and [here](https://cran.r-project.org/web/packages/here/index.html) packages.  
+*usethis* is a package designed to aid in the automation of repetitive tasks which will make workflow much smoother and *here* allows for more disciplined and safe file paths. 
 
 
 ```r
 install.packages("usethis")
 ```
 
-It can be used to do anything from make a new package to initialising a Git repo. Read the package documentation for a complete description of the package functions. For the purposes of this workshop, I will highlight the specific funtions that may be usefull for workflow efficiency. 
+It can be used to do anything from make a new package to initializing a Git repo. Read the package documentation for a complete description of the package functions. For the purposes of this workshop, I will highlight the specific functions that may be useful for workflow efficiency. 
 
 *Source:* [](https://whattheyforgot.org/)
 
@@ -184,15 +184,19 @@ It is important to adopt a project oriented workflow. This will allow you to wor
 1. Create a dedicated directory 
 2. Create an RStudio Project
  + Click "File", "New Project"
- + Click "New Directory" or "Existing Directory" (if syncing to a remote, click "Verson Control")
+ + Click "New Directory" or "Existing Directory" (if syncing to a remote, click "Version Control")
  + Name project  
 3. Git Repo
 
-### Tips 
+####Project Organization Tips
 
-Here are some tips to consider while to have a more holistic workflow:
+* All files related to project in designated folder
+    - Sub-folders for types of data depending on complexity 
+  * Working directory set to project's folder  
+      - Do not hard code paths 
+* Relative file paths - relative to project folder (we will get to this a bit more below. ) 
 
-#### Source and Blank Slates
+### Source and Blank Slates
 
 As scary as it may sounds, it's better to treat your R process and associated workspace as disposable. It is probably not a good sign when you need to leave your project and are not 100% sure your precious objects in your environment are reproducible. This attachment is indication you do not have a reproducible workflow.  
   
@@ -202,10 +206,26 @@ Save your code, not your workspace and restart R often. This will pressure you m
   
 
 **USE THE IDE!**  
-Yes, IDE's are meant to make your coding life easier. There are many out there aside from RStudio but I will stick to what I know. Using an IDE allows you tro devlop code in a script versus directly into the console.   
+Yes, IDE's are meant to make your coding life easier. There are many out there aside from RStudio but I will stick to what I know. Using an IDE allows you to develop code in a script versus directly into the console.  
+
+The IDE allows you to: 
+
+* Work on project A    
+    - R is started and working directory set in project folder  
+* Switch to project B  
+    - R is restarted and working directory is changed to project B folder  
+* Work simultaneously between projects A and B by having two instances of RStudio open at once    
+    - Each instance has its own R processes with their own working directories  
+  
+  
+**Note:** In case you haven't already noticed, RStudio saves your recently opened projects!  
+
+![Clicking the button to the right of the Project name will open it in a new instance](../images/1_changeproject.jpg)
+<br></br>
+<br></br>
 
 **BLANK SLATE!**  
-Like I mentioned previously, it's tempting to save your workspace and reload it everytime you start up RStudio, but this is bad practice! Loading up RStudio to a blank slate everytime enables the good practice of reproducibility.    
+Like I mentioned previously, it's tempting to save your workspace and reload it every time you start up RStudio, but this is bad practice! Loading up RStudio to a blank slate every time enables the good practice of reproducibility.    
   
   
 
@@ -241,18 +261,20 @@ This function will print directly to the console directions on how to start all 
 
 <br></br>
 
-This is a good habit to start forming. I cannot tell you how many times I am *certain* my program runs smoothly until I've restarted R and realized that a my function was calling a variable in a dataset that was created in the console for testing purposes. Restarting R often will help you catch these types of silly bugs and prevent embarassment in front of your boss.  
+This is a good habit to start forming. I cannot tell you how many times I am *certain* my program runs smoothly until I've restarted R and realized that a my function was calling a variable in a dataset that was created in the console for testing purposes. Restarting R often will help you catch these types of silly bugs and prevent embarrassment in front of your boss.  
   
   
-####Save and Automate
+###Kind Paths
 
 **MODULARITY**  
   
-If an object takes too long to create, save it! Isolate each demanding process in its own script and write it to file:  `saveRDS(my_object, here("results", "my_object.rds"))`  (saves `my_object.rds` to subdirectory "results")
+If an object takes too long to create, save it! Isolate each demanding process in its own script and write it to file:  `saveRDS(my_object, here("results", "my_object.rds"))`  (saves `my_object.rds` to sub-directory "results")
   
-What is this `here()` function you speak of? Glad you asked! If you find yourself writing `setwd()` at the top of your scripts, STOP ! 
+What is this `here()` function you speak of? Glad you asked! If you find yourself writing `setwd()` at the top of your scripts and you work with other people, STOP THAT RIGHT NOW! 
   
-The [here](https://github.com/jennybc/here_here) package is helps you get around the awkwardness of building/setting paths to working directories or subdirectories.   
+The [here](https://github.com/jennybc/here_here) package is helps you get around the awkwardness of building/setting paths to working directories or sub-directories. `here()` is meant to be used inside a project(i.e RStudio Project, Git repo, R package). 
+
+Read the documentation of [here package](https://cran.r-project.org/package=here).
 
 
 ```r
@@ -267,3 +289,70 @@ here()
 ```
 
 
+```r
+library(readr)
+NGA <-  read_csv(here("data", "NEPIP_NGA.csv"))
+
+```
+
+<br></br>
+
+Using the [here](https://github.com/jennybc/here_here) package will save you a lot of grief in the future if ever you need to move files or collaborate. Be warned!  
+
+###Kind Filenames
+
+Last but not least, I feel I can't talk about hollistic workflow without talking about effective file
+naming conventions.  
+  
+  
+Filenames should be:  
+
+  * Machine readable  
+    - i.e. no spaces, punctuation, accented characters
+    - regular expression friendly
+  * Human readable  
+    - i.e. contextual information
+  * Sorted
+    - dated, chronological context
+    
+    
+
+```r
+
+library(tidyverse)
+
+## example r scripts in my directory
+
+files <- c("breast_descriptive20190311.r",
+                "colorectal_descriptive20190224.r",
+                "colorectal_survival20190228.r",
+                "breast_survival20190314.r",
+                "pancreatic_descriptive20190120.r",
+                "pancreatic_survival20190130.r")
+
+files_df <- tibble(fileName = files)
+
+## I just want the survival files. Machine readable filenames allow me to filter my table for any file containing "surival"
+
+files_df %>% 
+  filter(str_detect(fileName, "survival"))
+#> # A tibble: 3 x 1
+#>   fileName                     
+#>   <chr>                        
+#> 1 colorectal_survival20190228.r
+#> 2 breast_survival20190314.r    
+#> 3 pancreatic_survival20190130.r
+```
+
+<br></br>
+<br></br>
+
+
+###Next Time
+
+In our next workshop we will talk about reproducible research and making publicatio-ready docs in RMarkdown!
+
+<br></br>
+<br></br>
+
+![](../images/1_thankyou.jpg)
