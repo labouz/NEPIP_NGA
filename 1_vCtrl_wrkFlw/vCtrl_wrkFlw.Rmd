@@ -59,9 +59,9 @@ Go to <https://github.com>. Go to your repositories page and click "New".
 We can use the shell (see Happy Git for more details) to clone the repo to our 
 local machines or we can do so from RStudio.
 
-###Version Control Projects in RStudio
+### Version Control Projects in RStudio
 
-####5./6. Connect RStudio to Git and GitHub and Create a Version Control Project
+#### 5./6. Connect RStudio to Git and GitHub and Create a Version Control Project
 If it's your first time using version control within RStudio, most likely you will
 have to help RStudio find Git on your machine.  
 
@@ -84,7 +84,7 @@ Make sure the directory of the project is pointing to where you would like to st
   GitHub will now be cloned to your local machine. 
 
 
-####7. Let's Make Some Changes!
+#### 7. Let's Make Some Changes!
 
 Let's open the README file and modify it. Add a line like "I'm going to push a change from RStudio"
 and hit save.   
@@ -100,7 +100,7 @@ and hit save.
 
   ![Leave a commit message and push the changes](../images/1_push.jpg)
 
-####8. Pulling
+#### 8. Pulling
 
   Let's modify the README of your test repo on GitHub. Leave a new line like, 
   "This is a line from GitHub", leave a commit message, and  press commit.
@@ -115,7 +115,7 @@ and hit save.
 
 ### Issues
   
-#####9. Merge conflicts
+##### 9. Merge conflicts
 Realistically, you will have a merge conflict. This is when two collaborators make changes to the dame line of a file and push the file to their repo.
 
 Let's try it out and then we'll resolve it!  
@@ -138,7 +138,7 @@ Let's open up the test repo we just created on GitHub.
   * You should get an error. First group, pull. Look at the document with the conflict and choose the preferred change. Commit, and push.
 
   
-#####10. Creating and Assigning Issues
+##### 10. Creating and Assigning Issues
 
 Issues are a useful way to track pieces of your code/project that need improvement, questions, etc.   
 
@@ -187,7 +187,7 @@ It is important to adopt a project oriented workflow. This will allow you to wor
  + Name project  
 3. Git Repo
 
-####Project Organization Tips
+#### Project Organization Tips
 
 * All files related to project in designated folder
     - Sub-folders for types of data depending on complexity 
@@ -258,7 +258,7 @@ This function will print directly to the console directions on how to start all 
 This is a good habit to start forming. I cannot tell you how many times I am *certain* my program runs smoothly until I've restarted R and realized that a my function was calling a variable in a dataset that was created in the console for testing purposes. Restarting R often will help you catch these types of silly bugs and prevent embarrassment in front of your boss.  
   
   
-###Kind Paths
+### Kind Paths
 
 **MODULARITY**  
   
@@ -289,7 +289,7 @@ NGA <-  read_csv(here("data", "NEPIP_NGA.csv"))
 
 Using the [here](https://github.com/jennybc/here_here) package will save you a lot of grief in the future if ever you need to move files or collaborate. Be warned!  
 
-###Kind Filenames
+### Kind Filenames
 
 Last but not least, I feel I can't talk about hollistic workflow without talking about effective file
 naming conventions.  
@@ -332,7 +332,7 @@ files_df %>%
 <br></br>
 
 
-###Next Time
+### Next Time
 
 In our next workshop we will talk about reproducible research and making publicatio-ready docs in RMarkdown!
 
