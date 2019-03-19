@@ -173,7 +173,7 @@ install.packages("usethis")
 
 It can be used to do anything from make a new package to initializing a Git repo. Read the package documentation for a complete description of the package functions. For the purposes of this workshop, I will highlight the specific functions that may be useful for workflow efficiency. 
 
-*Source:* [](https://whattheyforgot.org/)
+*Source:* <https://whattheyforgot.org/>
 
 
 ### Directory, RStudio Project, Repo 
