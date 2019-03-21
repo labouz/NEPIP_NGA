@@ -1,5 +1,5 @@
 ---
-title: "vCtrl_wrkFlw"
+title: "Version Control and Workflow in RStudio"
 subtitle: "R-Ladies Miami"
 author: "LB"
 date: "March 21, 2019"
@@ -11,19 +11,16 @@ output:
 
 
 
+**HI! All files can be found on the [NEPIP_NGA Repo](https://github.com/labouz/NEPIP_NGA)**
+
 ## Version Control
-Version control is a crucial consideration, especially when working with collaborators. We will try and collaborate on this project so, we will learn how to set up git on your machine and integrated into RStudio. Jenny Bryan also has a wonderful book online that provides an in-depth step-by-step on how to truly get git working smoothly, check it out here <https://happygitwithr.com>.  
+Version control is a crucial consideration, especially when working with collaborators. We will try and collaborate on this project so, we will learn how to set up git on your machine and get it integrated with RStudio. Jenny Bryan also has a wonderful book online that provides an in-depth step-by-step on how to truly get git working smoothly, check it out here <https://happygitwithr.com>.  
   
   Overview:  
 
 1. Install Windows: [Git](https://git-scm.com/) / macOS: Xcode
 2. Register a [GitHub](https://github.com) account
 3. Get your GitHub known to RStudio
-
-```r
-library(usethis)
-use_git_config(user.name = "labouz", user.email = "lab218@miami.edu")
-```
 4. Make a test repo on GitHub.com
 5. Connect RStudio to Git and GitHub
 6. Create project with version control
@@ -38,6 +35,23 @@ There is a "parent" or "master" branch that can feed several "children" branches
 
 #### 2. GitHub
 GitHub is a website that allows you to share your projects on code with collaborators/the world. In conjunction with Git, it is one of the more user-friendly systems out there.  
+
+#### 3. Get your GitHub known to RStudio
+
+Instead of using the shell, let's take advantage of the [usethis package](https://usethis.r-lib.org/). This package is a great tool for automating those mundane tasks such as setting up Git/GitHub or even browsing through issues on GitHub.  
+  
+  Run these lines in your console - remembering to replace your GitHub username and email instead of mine. 
+    
+  `use_git_config()` is a function that sets Git options such as the username or email for either the user or the project.
+  
+  <br></br>
+
+
+```r
+##install.packages("usethis")
+library(usethis)
+use_git_config(user.name = "labouz", user.email = "lab218@miami.edu")
+```
 
 #### 4. Create a test repo on GitHub.com
 Go to <https://github.com>. Go to your repositories page and click "New".  
@@ -73,9 +87,13 @@ executable file. Restart RStudio.
   
 Additional instructions for connecting Git/GitHub to RStudio:  <https://support.rstudio.com/hc/en-us/articles/200532077?version=1.1.463&mode=desktop>
 
-Now that RStudio can detect Git, let's make a project! Once you've restarted RStudio, click on 
+Now that RStudio can detect Git, let's make a project!  
+
+Once you've restarted RStudio, click on 
 *File > New Project*. Select the "Version Control" option and then select "Git". Here, you will paste the HTTPS URL of the repo we just created on GitHub.com. The name of the repo should auto-complete.
-Make sure the directory of the project is pointing to where you would like to store this project.
+Make sure the directory of the project is pointing to where you would like to store this project.  
+  
+  
 
 ![Paste the URL of the repo into a new RStudio Version Control project](../images/1_newproj.jpg)
   
@@ -98,6 +116,10 @@ and hit save.
   ![Commit the changes to the README file](../images/1_commit.jpg)
 
   ![Leave a commit message and push the changes](../images/1_push.jpg)
+<br></br>
+<br></br>
+
+You may have noticed this thing called *.gitignore*. This file is what Git uses to determine which files and directories to ignore, before you make a commit. This is particularly helpful if you have some data that you wish to not push out onto your repository. It is not necessary to committ the .gitignore file unless everyone working on the project is ignoring the same files.  
 
 #### 8. Pulling
 
@@ -109,7 +131,7 @@ and hit save.
   tab in the top right corner and press the blue "Pull" arrow. This will pull any 
   changes to the master remotely, locally.  
     
-    *Tip: when working with collaborators, it's a good idea to pull changes first, 
+> **Tip**: when working with collaborators, it's a good idea to pull changes first, 
     before pushing your local changes. Pull > Modify > Commit > Push
 
 ### Issues
@@ -148,12 +170,13 @@ Let's create an issue in our test repo. Go to the repo on GitHub and click on th
   
 <br></br>
 
-Repo owners from earlier, you notice there is a bug in createIssue.R. Let's assign our partners to fix the bug by assigning them an *Issue* on GitHub.  
+Repo owners from earlier, you notice there is a bug in createIssue.R. Let's assign our partners to fix the bug by assigning them an *Issue* on GitHub. 
+
   *  Copy and paste the R script into your test repo, commit and push the changes.   
   *  Contributors, pull changes.  
   *  Owners, let's create an issue. Hit the green **New Issue** button.   
   *  Write a summary of the issue and assign the issue to the other person.  
-  *  Other person, fix issue, leave comment, and close issue.
+  *  Other person, fix issue, leave comment (something that includes "Issue #1"), and close issue.
   
 
 ![Create and issue and assign it](../images/1_assignissue.jpg)
@@ -183,9 +206,9 @@ It is important to adopt a project oriented workflow. This will allow you to wor
 
 1. Create a dedicated directory 
 2. Create an RStudio Project
- + Click "File", "New Project"
- + Click "New Directory" or "Existing Directory" (if syncing to a remote, click "Version Control")
- + Name project  
+    + Click "File", "New Project"
+    + Click "New Directory" or "Existing Directory" (if syncing to a remote, click "Version Control")
+    + Name project  
 3. Git Repo
 
 #### Project Organization Tips
@@ -350,7 +373,7 @@ files_df %>%
 
 ### Next Time
 
-In our next workshop we will talk about reproducible research and making publicatio-ready docs in RMarkdown!
+In our next workshop we will talk about reproducible research and making publication-ready docs in RMarkdown!
 
 <br></br>
 
