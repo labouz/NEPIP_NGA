@@ -136,9 +136,11 @@ You may have noticed this thing called *.gitignore*. This file is what Git uses 
     before pushing your local changes. Pull > Modify > Commit > Push
 
 ### Issues
+
+**FORK BREAK!**
   
 ##### 9. Merge conflicts
-Realistically, you will have a merge conflict. This is when two collaborators make changes to the dame line of a file and push the file to their repo.
+Realistically, you will have a merge conflict. This is when two collaborators make changes to the same line of a file and push the file to their repo.
 
 Let's try it out and then we'll resolve it!  
 
