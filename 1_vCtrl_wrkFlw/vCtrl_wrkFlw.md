@@ -1,7 +1,7 @@
 ---
 title: "Version Control and Workflow in RStudio"
 subtitle: "R-Ladies Miami"
-author: "LB"
+author: "Layla Bouzoubaa  \nTwitter: [Bouzoulay](https://twitter.com/bouzoulay) "
 date: "March 21, 2019"
 output: 
   html_document:
